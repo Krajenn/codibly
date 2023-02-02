@@ -1,0 +1,57 @@
+.container
+    position: fixed
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    background-color: rgba(0, 0, 0, 0.7)
+    display: flex
+    justify-content: center
+    align-items: center
+    z-index: 10
+    animation: grow 0.2s ease-in-out
+    .content
+        position: relative
+        width: 50%
+        background-color: #fff
+        border-radius: 1rem
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+        animation: grow 0.2s ease-in-out
+        padding: 5vh 0
+        p
+            padding: 1vh 0
+            span
+                font-weight: 700
+        .closeModal
+            position: absolute
+            top: 1rem
+            right: 1rem
+            background-color: #fff
+            height: 10%
+            width: 10%
+            border: 2px solid #ccc
+            font-size: 1.2rem
+            cursor: pointer
+            transition: .2s ease-in-out
+            &:hover
+                background-color: #ccc
+
+@keyframes grow
+    0%
+        opacity: .2
+    25%
+        opacity: .4
+    50%
+        opacity: .6
+    75%
+        opacity: .8    
+    100%
+        opacity: 1
+        
+@media screen and (max-width: 480px)
+    .container
+        .content
+            width: 90%
