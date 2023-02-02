@@ -28,7 +28,23 @@ const Home = () => {
 
     if (loading) return <div>Loading...</div>;
 
-    if (error) return <div>Error</div>;
+    if (error)
+        return (
+            <div className={styles.container}>
+                <header>
+                    <h1
+                        onClick={() => {
+                            setQuery("");
+                            setPage(1);
+                            setSearchParams();
+                        }}
+                    >
+                        Codibly task by Konrad Rejentowicz
+                    </h1>
+                </header>
+                <div className={styles.content}>Error: {error.message}</div>
+            </div>
+        );
 
     return (
         <div className={styles.container}>
