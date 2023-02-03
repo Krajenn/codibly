@@ -28,23 +28,33 @@ const Home = () => {
 
     if (loading) return <div>Loading...</div>;
 
-    if (error)
-        return (
-            <div className={styles.container}>
-                <header>
-                    <h1
-                        onClick={() => {
-                            setQuery("");
-                            setPage(1);
-                            setSearchParams();
-                        }}
-                    >
-                        Codibly task by Konrad Rejentowicz
-                    </h1>
-                </header>
-                <div className={styles.content}>Error: {error.message}</div>
-            </div>
-        );
+    // if (error) {
+    //     let mess = error.message;
+    //     return (
+    //         <div className={styles.container}>
+    //             <header>
+    //                 <h1
+    //                     onClick={() => {
+    //                         setQuery("");
+    //                         setPage(1);
+    //                         setSearchParams();
+    //                     }}
+    //                 >
+    //                     Codibly task by Konrad Rejentowicz
+    //                 </h1>
+    //             </header>
+    //             <div className={styles.content}>
+    //                 <Search
+    //                     query={query}
+    //                     setQuery={setQuery}
+    //                     setSearchParams={setSearchParams}
+    //                     setPage={setPage}
+    //                 />
+    //                 <p className={styles.err}>Error: {mess}</p>
+    //             </div>
+    //         </div>
+    //     );
+    // }
 
     return (
         <div className={styles.container}>
@@ -70,13 +80,13 @@ const Home = () => {
                     data={data?.data}
                     setModalId={setModalId}
                     setModal={setModal}
+                    error={error}
                 />
                 <Pagination
                     setSearchParams={setSearchParams}
                     page={parseInt(page)}
                     setPage={setPage}
                     total_pages={data?.total_pages}
-                    query={query}
                 />
                 {modal && (
                     <Modal

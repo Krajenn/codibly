@@ -1,8 +1,19 @@
 import React from "react";
 import styles from "./Table.module.sass";
 
-const Table = ({ data, setModalId, setModal }) => {
+const Table = ({ data, setModalId, setModal, error }) => {
     let display;
+
+    if (error) {
+        display = (
+            <ul className={styles.ulContainer}>
+                <li className={styles.err}>
+                    No results found. Error: {error.message}
+                </li>
+            </ul>
+        );
+        return display;
+    }
 
     if (data && Array.isArray(data)) {
         display = data.map((item) => {

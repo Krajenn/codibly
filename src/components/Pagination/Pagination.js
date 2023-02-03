@@ -23,7 +23,7 @@ const Pagination = ({ setSearchParams, page, setPage, total_pages, query }) => {
         );
     }
 
-    if (query) return;
+    if (!total_pages) return;
     return (
         <div className={styles.pagination}>
             <button

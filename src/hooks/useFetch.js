@@ -12,9 +12,11 @@ const useFetch = (apiUrl) => {
             .get(apiUrl)
             .then((res) => {
                 setData(res.data);
+                setError("");
             })
             .catch((err) => {
                 setError(err);
+                console.log(err);
             })
             .finally(setLoading(false));
     }, [apiUrl]);
